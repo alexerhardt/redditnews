@@ -23,11 +23,15 @@ describe('POST /unsubscribe', () => {
     // TODO
   });
 
-  it('should unsubscribe from one', done => {
+  it('should not unsubscribe from one with invalid token', done => {
     // TODO
   });
 
-  it('should not unsubscribe from one with invalid token', done => {
+  it('should unsubscribe from only one if more than one sub', done => {
+    // TODO
+  });
+
+  it('should delete all traces of the user if it is their last sub', done => {
     // TODO
   });
 });

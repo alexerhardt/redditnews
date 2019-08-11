@@ -14,4 +14,6 @@ describe('Email creation and sending', () => {
   it('should form a valid email', () => {
     // TODO
   });
+
+  it('should not break Reddit API limits', () => {});
 });
