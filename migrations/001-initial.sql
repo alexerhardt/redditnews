@@ -10,11 +10,11 @@ CREATE TABLE Subreddits (
 );
 
 CREATE TABLE Subscriptions (
-    id        INTEGER PRIMARY KEY,
     email TEXT,
     subreddit TEXT,
     FOREIGN KEY (email) REFERENCES Users(email),
-    FOREIGN KEY (subreddit) REFERENCES Subreddits(subreddit)
+    FOREIGN KEY (subreddit) REFERENCES Subreddits(subreddit),
+    PRIMARY KEY (email, subreddit)
 );
 
 

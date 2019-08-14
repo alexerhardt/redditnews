@@ -1,6 +1,6 @@
 # Reddit News - Design Document
 
-## User Stories
+## Subscription Stories
 
 ### Feature: Subscribe to newsletter for a subreddit
 

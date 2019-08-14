@@ -1,19 +1,21 @@
 describe('Email creation and sending', () => {
-  it('should notify users if the subreddit no longer exists', () => {
+  it.skip('should notify users if the subreddit no longer exists', () => {
     // TODO
   });
 
-  it('should create as many emails as subreddits', () => {
+  it.skip('should create as many emails as subreddits', () => {
     // TODO
   });
 
-  it('should send as many emails as subscriptions', () => {
+  it.skip('should send as many emails as subscriptions', () => {
     // TODO
   });
 
-  it('should form a valid email', () => {
+  it.skip('should form a valid email', () => {
     // TODO
   });
 
-  it('should not break Reddit API limits', () => {});
+  it.skip('should not break Reddit API limits', () => {
+    // TODO
+  });
 });
