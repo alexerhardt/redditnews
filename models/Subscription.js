@@ -9,8 +9,7 @@ class Subscription {
         `SELECT * FROM Subscriptions
          WHERE email = '${email}' AND subreddit = '${subreddit}'`,
       );
-      console.log('exists res: ', res);
-      return true;
+      return res !== undefined;
     } catch (err) {
       throw new Error(err);
     }

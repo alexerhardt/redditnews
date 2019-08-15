@@ -9,10 +9,6 @@ const Subscription = require('../models/Subscription');
 // TODO: Write function to populate DB
 
 async function wipeDB() {
-  // sqlite
-  //   .open(dbPath)
-  //   .then(db => db.run('DELETE FROM Subscriptions'))
-  //   .catch(e => console.error('Error in wipe hook: ' + e));
   try {
     const db = await sqlite.open(dbPath);
     await db.run('DELETE FROM Subscriptions');
@@ -40,10 +36,9 @@ describe('POST /subscribe', () => {
           return done(err);
         }
 
-        Subscription.exists({ email, subreddit })
+        Subscription.exists(email, subreddit)
           .then(res => {
             expect(res).toBe(true);
-            console.log('all good my dude');
             done();
           })
           .catch(e => done(e));
