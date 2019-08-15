@@ -21,6 +21,13 @@ sqlite
 
 app.use('/', subscriptions);
 
+// Catch-all error handler
+app.use((err, req, res, next) => {
+  logger.error(err.stack);
+  res.status(err.status || 500);
+  res.json({ error: err });
+});
+
 const port = 3000;
 app.listen(port, () => {
   logger.info(`Server: listening on port ${port}`);

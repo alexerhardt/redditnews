@@ -48,9 +48,18 @@ describe('POST /subscribe', () => {
       .end(done);
   });
 
-  it.skip('should return ann error on more than 3 subscriptions per mail', done => {
-    // TODO
-    done('Todo');
+  it('should return an error on more than 3 subscriptions per mail', done => {
+    const { email } = subs[0];
+    const subreddit = 'pics';
+
+    request(app)
+      .post('/subscribe/')
+      .send({ email, subreddit })
+      .expect(422)
+      .expect(res =>
+        expect(res.body.error).toBe(messages.error.SUB_LIMIT_EXCEEDED),
+      )
+      .end(done);
   });
 
   it.skip('should not create a subscription with invalid email', done => {
