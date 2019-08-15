@@ -3,29 +3,20 @@ const request = require('supertest');
 const app = require('../index');
 const sqlite = require('sqlite');
 const dbPath = require('../config/db');
-
+const { populateDB, wipeDB } = require('./hooks/hooks');
 const Subscription = require('../models/Subscription');
+const { subs } = require('./seed/seed');
+const messages = require('../constants/messages');
 
 // TODO: Write function to populate DB
 
-async function wipeDB() {
-  try {
-    const db = await sqlite.open(dbPath);
-    await db.run('DELETE FROM Subscriptions');
-    await db.run('DELETE FROM Users');
-    return Promise.resolve('ok');
-  } catch (err) {
-    console.log('After hook: ' + err);
-    return Promise.reject('After hook error');
-  }
-}
-
+beforeEach(populateDB);
 afterEach(wipeDB);
 
 describe('POST /subscribe', () => {
   it('should create a new subscription', done => {
-    let email = 'alex@test.com';
-    let subreddit = 'soccer';
+    let email = 'new@test.com';
+    let subreddit = 'politics';
 
     request(app)
       .post('/subscribe/')
@@ -35,7 +26,6 @@ describe('POST /subscribe', () => {
         if (err) {
           return done(err);
         }
-
         Subscription.exists(email, subreddit)
           .then(res => {
             expect(res).toBe(true);
@@ -45,9 +35,17 @@ describe('POST /subscribe', () => {
       });
   });
 
-  it.skip('should return an error on duplicate subscription', done => {
-    // TODO
-    done('Todo');
+  it('should return an error on duplicate subscription', done => {
+    const { email, subreddit } = subs[0];
+
+    request(app)
+      .post('/subscribe/')
+      .send({ email, subreddit })
+      .expect(422)
+      .expect(res =>
+        expect(res.body.error).toBe(messages.error.SUBSCRIPTION_EXISTS),
+      )
+      .end(done);
   });
 
   it.skip('should return ann error on more than 3 subscriptions per mail', done => {
