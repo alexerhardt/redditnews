@@ -1,8 +1,6 @@
 const expect = require('expect');
 const request = require('supertest');
 const app = require('../index');
-const sqlite = require('sqlite');
-const dbPath = require('../config/db');
 const { populateDB, wipeDB } = require('./hooks/hooks');
 const Subscription = require('../models/Subscription');
 const { subs } = require('./seed/seed');
@@ -62,9 +60,16 @@ describe('POST /subscribe', () => {
       .end(done);
   });
 
-  it.skip('should not create a subscription with invalid email', done => {
-    // TODO
-    done('Todo');
+  it('should not create a subscription with invalid email', done => {
+    const email = 'malformed@email';
+    const { subreddit } = subs[0];
+
+    request(app)
+      .post('/subscribe/')
+      .send({ email, subreddit })
+      .expect(400)
+      .expect(res => expect(res.body.error).toBe(messages.error.INVALID_EMAIL))
+      .end(done);
   });
 
   it.skip('should not create a subscription with invalid subreddit name', done => {

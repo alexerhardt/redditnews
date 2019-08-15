@@ -1,6 +1,14 @@
 const sqlite = require('sqlite');
+const validator = require('validator');
 const dbPath = require('../config/db');
 const limits = require('../constants/limits');
+const {
+  InvalidEmailError,
+  AlreadyExistsError,
+  LimitReachedError,
+  MissingEmailError,
+  MissingSubredditError,
+} = require('../errors');
 
 class Subscription {
   static async exists(email, subreddit) {
@@ -21,14 +29,22 @@ class Subscription {
   }
 
   static async subscribe(email, subreddit) {
-    // TODO
-    // Validate email
-    // TODO
-    // Check that email has not appeared more than 3 times
-    // TODO
-    // Check that subreddit name is valid
-    // Write user
-    // Write subscription
+    if (!email) {
+      throw new MissingEmailError();
+    }
+    if (!validator.isEmail(email)) {
+      throw new InvalidEmailError();
+    }
+    if (!subreddit) {
+      throw new MissingSubredditError();
+    }
+    if (await this.exists(email, subreddit)) {
+      throw new AlreadyExistsError();
+    }
+    if (await this.exceedsLimits(email)) {
+      throw new LimitReachedError();
+    }
+
     const db = await sqlite.open(dbPath);
     await db.run(`INSERT INTO 'Users' (email) VALUES ('${email}')`);
     await db.run(

@@ -2,6 +2,7 @@ const limits = require('./limits');
 
 module.exports = {
   error: {
+    INVALID_EMAIL: 'Invalid email',
     MISSING_EMAIL: 'Missing email',
     MISSING_SUBREDDIT: 'Missing subreddit',
     SUBSCRIPTION_EXISTS: 'This email / subreddit combination already exists.',

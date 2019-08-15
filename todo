@@ -1,0 +1,6 @@
+- Refactor error messages: Model should throw them and then later
+  we should map them to a message and code in the error handler;
+  we do it with a series "instance of" checks.
+  We use a function that creates the strings such as:
+
+  function invalidField(field) { return 'Invalid' + field }

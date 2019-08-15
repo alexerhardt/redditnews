@@ -21,11 +21,12 @@ sqlite
 
 app.use('/', subscriptions);
 
-// Catch-all error handler
 app.use((err, req, res, next) => {
-  logger.error(err.stack);
-  res.status(err.status || 500);
-  res.json({ error: err });
+  if (!err.httpStatus) {
+    logger.error(err.stack);
+  }
+  res.status(err.httpStatus || 500);
+  res.json({ error: err.clientMessage || 'Internal server error' });
 });
 
 const port = 3000;

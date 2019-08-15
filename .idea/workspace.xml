@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="418fadec-1571-4579-87b6-83bfcb12ddfc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/constants/limits.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/errors/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/messages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Subscription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/subscriptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/subscriptions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/seed/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/seed/seed.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/server.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,8 +33,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="648">
-                  <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+                <state relative-caret-position="264">
+                  <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
                 </state>
               </provider>
             </entry>
@@ -41,8 +42,17 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/server.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-599">
-                  <caret line="39" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="72">
+                  <caret line="3" selection-start-line="3" selection-end-line="3" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/subscriptions.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" />
                 </state>
               </provider>
             </entry>
@@ -65,20 +75,25 @@
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/subscriptions.js">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/models/Subscription.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="80">
-                  <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+                <state relative-caret-position="259">
+                  <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/todo">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/models/Subscription.js">
+            <entry file="file://$PROJECT_DIR$/errors/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+                <state relative-caret-position="384">
+                  <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -95,8 +110,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/constants/messages.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+                <state relative-caret-position="96">
+                  <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -125,10 +140,11 @@
         <option value="$PROJECT_DIR$/tests/hooks/hooks.js" />
         <option value="$PROJECT_DIR$/tests/seed/seed.js" />
         <option value="$PROJECT_DIR$/constants/limits.js" />
-        <option value="$PROJECT_DIR$/constants/messages.js" />
-        <option value="$PROJECT_DIR$/routes/subscriptions.js" />
-        <option value="$PROJECT_DIR$/tests/server.test.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/routes/subscriptions.js" />
+        <option value="$PROJECT_DIR$/constants/messages.js" />
+        <option value="$PROJECT_DIR$/errors/index.js" />
+        <option value="$PROJECT_DIR$/tests/server.test.js" />
         <option value="$PROJECT_DIR$/models/Subscription.js" />
       </list>
     </option>
@@ -157,32 +173,6 @@
             <path>
               <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
               <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redditnews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redditnews" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="seed" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,12 +217,12 @@
       <updated>1565795841258</updated>
       <workItem from="1565795842557" duration="2901000" />
       <workItem from="1565798834915" duration="13207000" />
-      <workItem from="1565865156194" duration="7196000" />
+      <workItem from="1565865156194" duration="12670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23304000" />
+    <option name="totallyTimeSpent" value="28778000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -248,7 +238,7 @@
     <editor active="true" />
     <layout>
       <window_info id="DB Browser" weight="0.3295129" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17406876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15974212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="DB Execution Console" />
@@ -262,7 +252,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32923833" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32881773" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49612403" visible="true" weight="0.32881773" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49612403" visible="true" weight="0.25492612" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.503876" side_tool="true" weight="0.32923833" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -291,13 +281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/hooks/hooks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/constants/limits.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -305,10 +288,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants/messages.js">
+    <entry file="file://$PROJECT_DIR$/tests/hooks/hooks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="160">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -319,36 +302,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Subscription.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/subscriptions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/db.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        <state relative-caret-position="264">
+          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/subscriptions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errors/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/server.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-599">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Subscription.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
