@@ -5,6 +5,7 @@ const { populateDB, wipeDB } = require('./hooks/hooks');
 const Subscription = require('../models/Subscription');
 const { subs } = require('./seed/seed');
 const messages = require('../constants/messages');
+const names = require('../constants/names');
 
 // TODO: Write function to populate DB
 
@@ -41,7 +42,9 @@ describe('POST /subscribe', () => {
       .send({ email, subreddit })
       .expect(422)
       .expect(res =>
-        expect(res.body.error).toBe(messages.error.SUBSCRIPTION_EXISTS),
+        expect(res.body.error[names.EMAIL]).toBe(
+          messages.error.SUBSCRIPTION_EXISTS,
+        ),
       )
       .end(done);
   });
@@ -55,7 +58,9 @@ describe('POST /subscribe', () => {
       .send({ email, subreddit })
       .expect(422)
       .expect(res =>
-        expect(res.body.error).toBe(messages.error.SUB_LIMIT_EXCEEDED),
+        expect(res.body.error[names.EMAIL]).toBe(
+          messages.error.SUB_LIMIT_EXCEEDED,
+        ),
       )
       .end(done);
   });
@@ -68,7 +73,9 @@ describe('POST /subscribe', () => {
       .post('/subscribe/')
       .send({ email, subreddit })
       .expect(400)
-      .expect(res => expect(res.body.error).toBe(messages.error.INVALID_EMAIL))
+      .expect(res =>
+        expect(res.body.error[names.EMAIL]).toBe(messages.error.INVALID_EMAIL),
+      )
       .end(done);
   });
 

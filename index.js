@@ -4,6 +4,7 @@ const compression = require('compression');
 const sqlite = require('sqlite');
 const logger = require('./config/logger');
 const dbPath = require('./config/db');
+const { mapErrorToHttpResponse } = require('./errors/http-error-map');
 
 const subscriptions = require('./routes/subscriptions');
 
@@ -22,11 +23,12 @@ sqlite
 app.use('/', subscriptions);
 
 app.use((err, req, res, next) => {
-  if (!err.httpStatus) {
+  const { statusCode, error } = mapErrorToHttpResponse(err);
+  if (statusCode === 500) {
     logger.error(err.stack);
   }
-  res.status(err.httpStatus || 500);
-  res.json({ error: err.clientMessage || 'Internal server error' });
+  console.log('error: ' + error);
+  res.status(statusCode).json({ error });
 });
 
 const port = 3000;
