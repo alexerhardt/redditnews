@@ -27,7 +27,6 @@ app.use((err, req, res, next) => {
   if (statusCode === 500) {
     logger.error(err.stack);
   }
-  console.log('error: ' + error);
   res.status(statusCode).json({ error });
 });
 

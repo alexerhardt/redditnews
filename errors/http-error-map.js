@@ -8,31 +8,28 @@ const {
 } = require('../errors');
 
 module.exports.mapErrorToHttpResponse = error => {
-  let response = { error: {}, statusCode: -1 };
+  let response = { error: 'Internal server error', statusCode: 500 };
 
   if (error instanceof MissingValueError) {
     if (error.field === names.EMAIL) {
-      response.error[names.EMAIL] = messages.error.MISSING_EMAIL;
+      response.error = messages.error.MISSING_EMAIL;
     } else if (error.field === names.SUBREDDIT) {
-      response.error[names.SUBREDDIT] = messages.error.MISSING_SUBREDDIT;
+      response.error = messages.error.MISSING_SUBREDDIT;
     }
     response.statusCode = 400;
   } else if (error instanceof InvalidValueError) {
     if (error.field === names.EMAIL) {
-      response.error[names.EMAIL] = messages.error.INVALID_EMAIL;
+      response.error = messages.error.INVALID_EMAIL;
     } else if (error.field === names.SUBREDDIT) {
-      response.error[names.EMAIL] = messages.error.INVALID_SUBREDDIT;
+      response.error = messages.error.INVALID_SUBREDDIT;
     }
     response.statusCode = 400;
   } else if (error instanceof DuplicateValueError) {
-    response.error[names.EMAIL] = messages.error.SUBSCRIPTION_EXISTS;
+    response.error = messages.error.SUBSCRIPTION_EXISTS;
     response.statusCode = 422;
   } else if (error instanceof SubscriptionLimitError) {
-    response.error[names.EMAIL] = messages.error.SUB_LIMIT_EXCEEDED;
+    response.error = messages.error.SUB_LIMIT_EXCEEDED;
     response.statusCode = 422;
-  } else {
-    response.error = 'Internal server error';
-    response.statusCode = 500;
   }
 
   return response;
