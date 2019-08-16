@@ -39,10 +39,7 @@ class Subscription {
       throw new MissingValueError(names.SUBREDDIT);
     }
     if (await this.exists(email, subreddit)) {
-      throw new DuplicateValueError(
-        names.SUBSCRIPTION,
-        `(${email}, ${subreddit})`,
-      );
+      return;
     }
     if (await this.exceedsLimits(email)) {
       throw new SubscriptionLimitError(names.EMAIL, limits.MAX_SUBS_PER_EMAIL);

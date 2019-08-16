@@ -18,6 +18,7 @@ describe('POST /subscribe', () => {
       .post('/subscribe/')
       .send({ email, subreddit })
       .expect(200)
+      .expect(res => expect(res.body.message).toBe(messages.ok.SUBS_CREATED))
       .end((err, res) => {
         if (err) {
           return done(err);
@@ -31,16 +32,14 @@ describe('POST /subscribe', () => {
       });
   });
 
-  it('should return an error on duplicate subscription', done => {
+  it('should return ok on duplicate subscription', done => {
     const { email, subreddit } = subs[0];
 
     request(app)
       .post('/subscribe/')
       .send({ email, subreddit })
-      .expect(422)
-      .expect(res =>
-        expect(res.body.error).toBe(messages.error.SUBSCRIPTION_EXISTS),
-      )
+      .expect(200)
+      .expect(res => expect(res.body.message).toBe(messages.ok.SUBS_CREATED))
       .end(done);
   });
 
