@@ -5,7 +5,7 @@ const messages = require('../constants/messages');
 router.post('/subscribe', (req, res, next) => {
   const { email, subreddit } = req.body;
   Subscription.subscribe(email, subreddit)
-    .then(() => res.sendStatus(200))
+    .then(() => res.status(200).json({ message: messages.ok.SUBS_CREATED }))
     .catch(next);
 });
 

@@ -1,6 +1,9 @@
 const limits = require('./limits');
 
 module.exports = {
+  ok: {
+    SUBS_CREATED: 'Subscription created',
+  },
   error: {
     INVALID_EMAIL: 'Invalid email',
     INVALID_SUBREDDIT: 'Cannot find that subreddit',
