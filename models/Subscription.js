@@ -38,6 +38,8 @@ class Subscription {
     if (!subreddit) {
       throw new MissingValueError(names.SUBREDDIT);
     }
+    // If it already exists, do nothing; this results in a 200
+    // We don't want to unveil if a user is subscribed to a certain subreddit
     if (await this.exists(email, subreddit)) {
       return;
     }

@@ -1,3 +1,8 @@
+/**
+ * http-error-map
+ * Maps model errors to http response codes and messages
+ * Allows for a cleaner separation of controller and model
+ */
 const messages = require('../constants/messages');
 const names = require('../constants/names');
 const {
@@ -8,6 +13,7 @@ const {
 } = require('../errors');
 
 module.exports.mapErrorToHttpResponse = error => {
+  // Default to 500 if we don't know the error
   let response = { error: 'Internal server error', statusCode: 500 };
 
   if (error instanceof MissingValueError) {
