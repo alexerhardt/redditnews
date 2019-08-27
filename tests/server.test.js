@@ -69,9 +69,19 @@ describe('POST /subscribe', () => {
       .end(done);
   });
 
-  it.skip('should not create a subscription with invalid subreddit name', done => {
+  it('should not create a subscription with invalid subreddit name', done => {
     // TODO
-    done('Todo');
+    let email = 'new@test.com';
+    const subreddit = 'asdzajhfa12321xasdfagsr123052';
+
+    request(app)
+      .post('/subscribe/')
+      .send({ email, subreddit })
+      .expect(400)
+      .expect(res =>
+        expect(res.body.error).toBe(messages.error.INVALID_SUBREDDIT),
+      )
+      .end(done);
   });
 });
 
